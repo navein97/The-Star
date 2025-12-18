@@ -157,8 +157,9 @@
 
 .floating-card p {
   margin: 0;
-  font-size: 0.8rem;
-  opacity: 0.8;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  color: var(--white);
 }
 
 /* Spread cards out to avoid blocking */
@@ -177,12 +178,6 @@
   bottom: 30%;
   right: -3%;
   animation-delay: 1s;
-}
-
-.floating-card p {
-  color: var(--gray-600);
-  margin: 0;
-  font-size: 0.9rem;
 }
 
 @keyframes float {
