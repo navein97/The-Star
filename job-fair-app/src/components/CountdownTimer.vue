@@ -42,8 +42,8 @@ const hours = ref(0)
 const minutes = ref(0)
 const seconds = ref(0)
 
-// Set target date: October 15, 2025
-const targetDate = new Date('2025-10-15T09:00:00').getTime()
+// Set target date: January 1, 2026
+const targetDate = new Date('2026-01-01T09:00:00').getTime()
 
 let intervalId = null
 

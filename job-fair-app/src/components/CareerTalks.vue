@@ -99,7 +99,23 @@ const fetchAvailableSlots = async () => {
       params: { type: 'slots', date: formData.session_date }
     })
     if (response.data.success) {
-      availableSlots.value = response.data.available_slots
+      let slots = response.data.available_slots
+      
+      // If the selected date is today, filter out past time slots
+      if (formData.session_date === minDate) {
+        const now = new Date()
+        const currentHour = now.getHours()
+        const currentMinute = now.getMinutes()
+        
+        slots = slots.filter(slot => {
+          const [slotHour, slotMinute] = slot.split(':').map(Number)
+          if (slotHour > currentHour) return true
+          if (slotHour === currentHour && slotMinute > currentMinute) return true
+          return false
+        })
+      }
+      
+      availableSlots.value = slots
     }
   } catch (error) {
     console.error('Error fetching slots', error)
