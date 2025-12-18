@@ -17,8 +17,10 @@
       
       <div class="floor-plan-container" @click="openModal">
         <div class="floor-plan-preview">
-          <p>Click to view larger floor plan</p>
-          <p class="view-text">{{ $t('floorPlan.viewLarger') }} 🔍</p>
+          <img src="/assets/images/floor-plan.png" alt="Exhibition Floor Plan" class="floor-map-img" />
+          <div class="overlay-text">
+            <span>{{ $t('floorPlan.viewLarger') }} 🔍</span>
+          </div>
         </div>
       </div>
       
@@ -30,7 +32,7 @@
             <button class="modal-close" @click="closeModal">&times;</button>
           </div>
           <div class="floor-plan-large">
-            <p>Large floor plan view</p>
+            <img src="/assets/images/floor-plan.png" alt="Large Exhibition Floor Plan" />
           </div>
         </div>
       </div>
@@ -79,31 +81,58 @@ const closeModal = () => {
 }
 
 .floor-plan-preview {
-  background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+  position: relative;
   border-radius: var(--radius-xl);
-  padding: var(--spacing-3xl);
-  text-align: center;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed var(--gray-400);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 16 / 9;
 }
 
-.view-text {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-top: var(--spacing-md);
+.floor-map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.floor-plan-container:hover .floor-map-img {
+  transform: scale(1.1);
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(37, 99, 235, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.floor-plan-container:hover .overlay-text {
+  opacity: 1;
+}
+
+.overlay-text span {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.5);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
 }
 
 .floor-plan-large {
-  background: var(--gray-100);
-  min-height: 600px;
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+}
+
+.floor-plan-large img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
 }
 </style>

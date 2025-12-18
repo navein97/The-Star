@@ -23,7 +23,8 @@
         </div>
         
         <div class="hero-image">
-          <div class="image-placeholder">
+          <img src="/assets/images/hero.png" alt="Job Fair Illustration" class="hero-img" />
+          <div class="floating-stats">
             <div class="floating-card">
               <h3>1000+</h3>
               <p>Job Opportunities</p>
@@ -116,29 +117,43 @@
   height: 400px;
 }
 
-.image-placeholder {
-  position: relative;
+.hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-2xl);
+  animation: fadeIn 1s ease-out;
+}
+
+.floating-stats {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius-2xl);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-lg);
-  padding: var(--spacing-xl);
+  pointer-events: none;
 }
 
 .floating-card {
+  position: absolute;
   background: var(--white);
   color: var(--primary);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
   text-align: center;
   animation: float 3s ease-in-out infinite;
+  pointer-events: auto;
+}
+
+.floating-card:nth-child(1) {
+  top: 10%;
+  left: -10%;
+}
+
+.floating-cardBy:nth-child(2) {
+  bottom: 20%;
+  right: -5%;
 }
 
 .floating-card.delay-1 {
