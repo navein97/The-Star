@@ -8,7 +8,7 @@ class Database {
     private $host = "localhost";
     private $db_name = "job_fair_db";
     private $username = "root";  // Change this to your MySQL username
-    private $password = "";      // Change this to your MySQL password
+    private $password = "root";      // Change this to your MySQL password
     private $conn;
 
     /**
