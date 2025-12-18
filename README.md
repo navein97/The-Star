@@ -27,7 +27,7 @@ A single-page application built with **Vue 3** and **PHP**, featuring interactiv
 - **Interactive Floor Plan**: Searchable exhibitor directory with lightbox view.
 - **Reservations**: Book "Job Matching" and "Career Talk" sessions with real-time slot availability.
 - **Forms**: Validation for contact and exhibitor registration forms.
-- **Chatbot**: Simulated AI assistant for FAQs (ready for OpenAI integration).
+- **Chatbot**: AI assistant powered by **Google Gemini** for FAQs.
 - **Internationalization**: Full English & Malay (Bahasa Malaysia) support.
 - **Countdown Timer**: Live countdown to the event start.
 
@@ -35,7 +35,7 @@ A single-page application built with **Vue 3** and **PHP**, featuring interactiv
 
 1. **Prerequisites**:
    - Node.js (v16+)
-   - PHP (v8.0+)
+   - PHP (v8.0+) - **Note**: cURL extension must be enabled in `php.ini`.
    - MySQL
 
 2. **Database Setup**:
@@ -44,6 +44,7 @@ A single-page application built with **Vue 3** and **PHP**, featuring interactiv
    - Update `job-fair-app/backend/config/database.php` with your database credentials.
 
 3. **Backend Setup**:
+   - Update `job-fair-app/backend/api/chatbot.php` with your **Google Gemini API Key**.
    - Start the PHP built-in server:
      ```bash
      cd job-fair-app
@@ -85,8 +86,9 @@ A browser-based game using **HTML5 Canvas** for rendering and **JavaScript** for
 ---
 
 ## 📝 Notes
-- The **Chatbot** in Assignment #1 is currently using simulated responses. To use a real AI, uncomment the API call in `Chatbot.vue` and add your OpenAI API key.
 - **Responsive Design**: Both projects are fully responsive and mobile-friendly.
+- **Security**: Backend using PHP PDO with prepared statements to prevent SQL injection.
+- **Gemini Chatbot**: Fully integrated AI assistant (ensure API key is set in `chatbot.php`).
 
 ---
 
