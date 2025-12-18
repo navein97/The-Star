@@ -29,11 +29,11 @@
               <h3>1000+</h3>
               <p>Job Opportunities</p>
             </div>
-            <div class="floating-card delay-1">
+            <div class="floating-card">
               <h3>200+</h3>
               <p>Companies</p>
             </div>
-            <div class="floating-card delay-2">
+            <div class="floating-card">
               <h3>50+</h3>
               <p>Career Talks</p>
             </div>
@@ -136,38 +136,47 @@
 
 .floating-card {
   position: absolute;
-  background: var(--white);
-  color: var(--primary);
+  background: rgba(30, 41, 59, 0.9);
+  backdrop-filter: blur(8px);
+  color: var(--white);
   padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
   text-align: center;
   animation: float 3s ease-in-out infinite;
   pointer-events: auto;
-}
-
-.floating-card:nth-child(1) {
-  top: 10%;
-  left: -10%;
-}
-
-.floating-cardBy:nth-child(2) {
-  bottom: 20%;
-  right: -5%;
-}
-
-.floating-card.delay-1 {
-  animation-delay: 0.5s;
-}
-
-.floating-card.delay-2 {
-  animation-delay: 1s;
+  min-width: 140px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .floating-card h3 {
-  color: var(--primary);
-  font-size: 2rem;
-  margin-bottom: var(--spacing-xs);
+  color: #60a5fa;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.floating-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Spread cards out to avoid blocking */
+.floating-card:nth-child(1) {
+  top: 15%;
+  left: -10%;
+}
+
+.floating-card:nth-child(2) {
+  top: -5%;
+  right: 35%;
+  animation-delay: 0.5s;
+}
+
+.floating-card:nth-child(3) {
+  bottom: 30%;
+  right: -3%;
+  animation-delay: 1s;
 }
 
 .floating-card p {
