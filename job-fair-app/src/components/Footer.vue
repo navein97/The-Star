@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-info">
-          <h3>Job Fair 2025</h3>
+          <h3>Job Fair 2026</h3>
           <p>{{ $t('footer.organizer') }}</p>
         </div>
         

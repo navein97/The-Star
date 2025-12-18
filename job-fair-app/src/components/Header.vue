@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header-content">
         <div class="logo">
-          <h2>🎯 Job Fair 2025</h2>
+          <h2>🎯 Job Fair 2026</h2>
         </div>
         
         <nav class="nav">

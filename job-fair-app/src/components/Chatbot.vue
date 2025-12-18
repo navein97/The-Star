@@ -64,7 +64,6 @@ const scrollToBottom = () => {
 
 // NOTE: In a real production app, you should call your own backend
 // which then calls OpenAI, to protect your API key.
-// For this demo, we'll simulate a response or use a placeholder API call.
 const sendMessage = async () => {
   if (!inputMessage.value.trim()) return
   
@@ -76,26 +75,25 @@ const sendMessage = async () => {
   isTyping.value = true
   
   try {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    const response = await fetch('http://localhost:8000/backend/api/chatbot.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: userText })
+    })
     
-    // Simple rule-based responses for demo purposes (since we don't have a real API key)
-    let botResponse = "I'm not sure about that. Please contact our support team."
+    const data = await response.json()
     
-    const lowerText = userText.toLowerCase()
-    if (lowerText.includes('location') || lowerText.includes('where')) {
-      botResponse = "The Job Fair is held at Kuala Lumpur Convention Centre."
-    } else if (lowerText.includes('time') || lowerText.includes('when')) {
-      botResponse = "The event is on October 15-16, 2025, from 9:00 AM to 6:00 PM."
-    } else if (lowerText.includes('register') || lowerText.includes('sign up')) {
-      botResponse = "You can register as an exhibitor using the 'Be Our Exhibitor' button above."
-    } else if (lowerText.includes('job') || lowerText.includes('matching')) {
-      botResponse = "You can book job matching sessions in the 'Job Matching Sessions' section."
+    if (data.success) {
+      messages.value.push({ type: 'bot', text: data.reply })
+    } else {
+      messages.value.push({ type: 'bot', text: "Sorry, I'm having trouble connecting right now." })
     }
     
-    messages.value.push({ type: 'bot', text: botResponse })
     scrollToBottom()
   } catch (error) {
+    console.error('Chatbot error:', error)
     messages.value.push({ type: 'bot', text: "Sorry, I'm having trouble connecting right now." })
   } finally {
     isTyping.value = false
