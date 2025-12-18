@@ -1,0 +1,87 @@
+{
+  "en": {
+    "hero": {
+      "title": "Find The Right Talent",
+      "subtitle": "Connect with top employers and discover your dream career",
+      "date": "October 15-16, 2025",
+      "location": "Kuala Lumpur Convention Centre",
+      "cta": "Register Now"
+    },
+    "countdown": {
+      "title": "Event Starts In",
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    },
+    "exhibitor": {
+      "title": "Be Our Exhibitor",
+      "subtitle": "Showcase your company and connect with talented job seekers",
+      "button": "Register as Exhibitor",
+      "form": {
+        "title": "Exhibitor Registration",
+        "companyName": "Company Name",
+        "contactPerson": "Contact Person",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "industry": "Industry",
+        "boothPreference": "Booth Preference",
+        "additionalInfo": "Additional Information",
+        "submit": "Submit Registration",
+        "cancel": "Cancel"
+      }
+    },
+    "floorPlan": {
+      "title": "Floor Plan & Directory",
+      "subtitle": "Explore our exhibitor layout",
+      "search": "Search exhibitors...",
+      "viewLarger": "View Larger Plan"
+    },
+    "jobMatching": {
+      "title": "Job Matching Sessions",
+      "subtitle": "Book a one-on-one session with recruiters",
+      "selectDate": "Select Date",
+      "selectTime": "Select Time",
+      "name": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone Number (Optional)",
+      "notes": "Additional Notes (Optional)",
+      "submit": "Reserve Slot",
+      "noSlots": "No available slots for this date"
+    },
+    "careerTalk": {
+      "title": "Career Talk Sessions",
+      "subtitle": "Attend insightful career development talks",
+      "selectDate": "Select Date",
+      "selectTime": "Select Time",
+      "name": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone Number (Optional)",
+      "notes": "Additional Notes (Optional)",
+      "submit": "Reserve Slot"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "subtitle": "Have questions? We're here to help!",
+      "name": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone Number (Optional)",
+      "message": "Your Message",
+      "submit": "Send Message"
+    },
+    "chatbot": {
+      "title": "Need Help?",
+      "placeholder": "Type your question...",
+      "send": "Send"
+    },
+    "footer": {
+      "rights": "All rights reserved",
+      "organizer": "Organized by Star Media Group"
+    },
+    "messages": {
+      "success": "Success!",
+      "error": "Error",
+      "loading": "Loading..."
+    }
+  }
+}

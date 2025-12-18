@@ -1,0 +1,66 @@
+{
+  "title": "Spin & Win!",
+  "subtitle": "Try your luck to win amazing prizes",
+  "prizes": [
+    {
+      "id": 1,
+      "name": "Grand Prize",
+      "label": "Mackbook Pro",
+      "quantity": 1,
+      "probability": 0.05,
+      "color": "#FFD700",
+      "textColor": "#000000",
+      "effect": "confetti"
+    },
+    {
+      "id": 2,
+      "name": "Second Prize",
+      "label": "iPhone 15",
+      "quantity": 2,
+      "probability": 0.10,
+      "color": "#C0C0C0",
+      "textColor": "#000000",
+      "effect": "sparkles"
+    },
+    {
+      "id": 3,
+      "name": "Third Prize",
+      "label": "iPad Air",
+      "quantity": 3,
+      "probability": 0.15,
+      "color": "#CD7F32",
+      "textColor": "#000000",
+      "effect": "sparkles"
+    },
+    {
+      "id": 4,
+      "name": "Consolation",
+      "label": "Starbucks Card",
+      "quantity": 20,
+      "probability": 0.30,
+      "color": "#4CAF50",
+      "textColor": "#FFFFFF",
+      "effect": "fade"
+    },
+    {
+      "id": 5,
+      "name": "Consolation",
+      "label": "Notebook",
+      "quantity": 30,
+      "probability": 0.20,
+      "color": "#2196F3",
+      "textColor": "#FFFFFF",
+      "effect": "fade"
+    },
+    {
+      "id": 6,
+      "name": "Try Again",
+      "label": "No Luck",
+      "quantity": 9999,
+      "probability": 0.20,
+      "color": "#F44336",
+      "textColor": "#FFFFFF",
+      "effect": "shake"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "ms": {
+    "hero": {
+      "title": "Cari Bakat Yang Tepat",
+      "subtitle": "Berhubung dengan majikan terkemuka dan temui kerjaya impian anda",
+      "date": "15-16 Oktober 2025",
+      "location": "Pusat Konvensyen Kuala Lumpur",
+      "cta": "Daftar Sekarang"
+    },
+    "countdown": {
+      "title": "Acara Bermula Dalam",
+      "days": "Hari",
+      "hours": "Jam",
+      "minutes": "Minit",
+      "seconds": "Saat"
+    },
+    "exhibitor": {
+      "title": "Jadi Pameran Kami",
+      "subtitle": "Paparkan syarikat anda dan berhubung dengan pencari kerja berbakat",
+      "button": "Daftar Sebagai Pameran",
+      "form": {
+        "title": "Pendaftaran Pameran",
+        "companyName": "Nama Syarikat",
+        "contactPerson": "Orang Hubungan",
+        "email": "Alamat E-mel",
+        "phone": "Nombor Telefon",
+        "industry": "Industri",
+        "boothPreference": "Pilihan Gerai",
+        "additionalInfo": "Maklumat Tambahan",
+        "submit": "Hantar Pendaftaran",
+        "cancel": "Batal"
+      }
+    },
+    "floorPlan": {
+      "title": "Pelan Lantai & Direktori",
+      "subtitle": "Terokai susun atur pameran kami",
+      "search": "Cari pameran...",
+      "viewLarger": "Lihat Pelan Lebih Besar"
+    },
+    "jobMatching": {
+      "title": "Sesi Padanan Pekerjaan",
+      "subtitle": "Tempah sesi satu-satu dengan perekrut",
+      "selectDate": "Pilih Tarikh",
+      "selectTime": "Pilih Masa",
+      "name": "Nama Anda",
+      "email": "Alamat E-mel",
+      "phone": "Nombor Telefon (Pilihan)",
+      "notes": "Nota Tambahan (Pilihan)",
+      "submit": "Tempah Slot",
+      "noSlots": "Tiada slot tersedia untuk tarikh ini"
+    },
+    "careerTalk": {
+      "title": "Sesi Ceramah Kerjaya",
+      "subtitle": "Hadiri ceramah pembangunan kerjaya yang berwawasan",
+      "selectDate": "Pilih Tarikh",
+      "selectTime": "Pilih Masa",
+      "name": "Nama Anda",
+      "email": "Alamat E-mel",
+      "phone": "Nombor Telefon (Pilihan)",
+      "notes": "Nota Tambahan (Pilihan)",
+      "submit": "Tempah Slot"
+    },
+    "contact": {
+      "title": "Hubungi Kami",
+      "subtitle": "Ada soalan? Kami di sini untuk membantu!",
+      "name": "Nama Anda",
+      "email": "Alamat E-mel",
+      "phone": "Nombor Telefon (Pilihan)",
+      "message": "Mesej Anda",
+      "submit": "Hantar Mesej"
+    },
+    "chatbot": {
+      "title": "Perlukan Bantuan?",
+      "placeholder": "Taip soalan anda...",
+      "send": "Hantar"
+    },
+    "footer": {
+      "rights": "Hak cipta terpelihara",
+      "organizer": "Dianjurkan oleh Kumpulan Media Star"
+    },
+    "messages": {
+      "success": "Berjaya!",
+      "error": "Ralat",
+      "loading": "Memuatkan..."
+    }
+  }
+}
