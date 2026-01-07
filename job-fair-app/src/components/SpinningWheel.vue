@@ -3,9 +3,9 @@
     <div class="absolute inset-0 bg-gradient-to-b from-dark-bg to-indigo-900/50 -z-10"></div>
     
     <div class="container mx-auto px-4 text-center relative z-10">
-      <h2 class="section-title mb-4">🎡 Spin & Win!</h2>
+      <h2 class="section-title mb-4">🎡 {{ $t('spinWheel.title') }}</h2>
       <p class="text-gray-300 mb-12 max-w-2xl mx-auto text-lg">
-        Try your luck and win exclusive prizes from our top exhibitors!
+        {{ $t('spinWheel.subtitle') }}
       </p>
 
       <div class="flex flex-col items-center gap-8">
@@ -33,7 +33,7 @@
               :disabled="isSpinning"
               class="btn-primary text-xl px-12 py-4 shadow-neon disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {{ isSpinning ? 'Spinning...' : 'SPIN NOW!' }}
+              {{ isSpinning ? $t('spinWheel.spinning') : $t('spinWheel.button') }}
             </button>
           </div>
         </div>
@@ -46,14 +46,14 @@
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" @click="closeModal"></div>
         <div class="bg-dark-800 border border-white/10 rounded-2xl p-8 max-w-md w-full relative z-10 text-center animate-fade-in shadow-2xl">
           <h3 class="text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-4">
-            Congratulations! 🎉
+            {{ $t('spinWheel.won') }}
           </h3>
-          <p class="text-xl text-white mb-2">You won:</p>
+          <p class="text-xl text-white mb-2">{{ $t('spinWheel.youWon') }}</p>
           <p class="text-2xl font-bold text-accent mb-8 p-4 bg-white/5 rounded-xl border border-white/10">
             {{ wonPrize?.label }}
           </p>
           <button @click="closeModal" class="btn-primary w-full">
-            Claim Prize
+            {{ $t('spinWheel.claim') }}
           </button>
         </div>
       </div>
@@ -174,7 +174,7 @@ const spinWheel = () => {
   // The slice starts at angle 0 in the "wheel space".
   // So we need to rotate the "wheel space" so the specific slice hits the top.
   
-  const extraSpins = 5 + Math.random() * 2 // 5 to 7 spins
+  const extraSpins = 5 // Always do 5 full spins for consistency
   // The angle where the prize CENTER is currently (if rotation was 0)
   const currentPrizeAngle = prizeIndex * sliceAngle + sliceAngle / 2
   

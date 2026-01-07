@@ -3,9 +3,14 @@
     "hero": {
       "title": "Find The Right Talent",
       "subtitle": "Connect with top employers and discover your dream career",
+      "tagline": "THE FUTURE OF WORK IS HERE",
       "date": "January 1-2, 2026",
       "location": "Kuala Lumpur Convention Centre",
-      "cta": "Register Now"
+      "cta": "Register Now",
+      "schedule": "View Schedule",
+      "stat_jobs": "Job Opportunities",
+      "stat_talks": "Career Talks",
+      "stat_companies": "Top Companies"
     },
     "countdown": {
       "title": "Event Starts In",
@@ -13,6 +18,15 @@
       "hours": "Hours",
       "minutes": "Minutes",
       "seconds": "Seconds"
+    },
+    "spinWheel": {
+      "title": "Spin & Win!",
+      "subtitle": "Try your luck and win exclusive prizes from our top exhibitors!",
+      "button": "SPIN NOW!",
+      "spinning": "Spinning...",
+      "won": "Congratulations! 🎉",
+      "youWon": "You won:",
+      "claim": "Claim Prize"
     },
     "exhibitor": {
       "title": "Be Our Exhibitor",
@@ -76,7 +90,17 @@
     },
     "footer": {
       "rights": "All rights reserved",
-      "organizer": "Organized by Star Media Group"
+      "madeWith": "Made with ❤️ for the Future",
+      "organizer": "Organized by Star Media Group",
+      "quickLinks": "Quick Links",
+      "followUs": "Follow Us",
+      "desc": "Connecting top talent with world-class opportunities. Join us for the biggest virtual career event of the year.",
+      "links": {
+        "home": "Home",
+        "exhibitors": "Exhibitors",
+        "sessions": "Sessions",
+        "contact": "Contact"
+      }
     },
     "messages": {
       "success": "Success!",

@@ -28,11 +28,11 @@
           <!-- Date & Time Grid -->
           <div class="grid md:grid-cols-2 gap-6">
             <div class="group">
-              <label class="block text-sm font-medium text-gray-400 mb-2">{{ $t('jobMatching.selectDate') }} *</label>
+              <label class="block text-sm font-medium text-gray-400 mb-3">{{ $t('jobMatching.selectDate') }} *</label>
               <input 
                 v-model="formData.session_date" 
                 type="date" 
-                class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all" 
+                class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all" 
                 :min="minDate"
                 @change="fetchAvailableSlots"
                 required 
@@ -40,15 +40,16 @@
             </div>
 
             <div class="group">
-              <label class="block text-sm font-medium text-gray-400 mb-2">{{ $t('jobMatching.selectTime') }} *</label>
+              <label class="block text-sm font-medium text-gray-400 mb-3">{{ $t('jobMatching.selectTime') }} *</label>
               <div class="relative">
                 <select 
                   v-model="formData.session_time" 
-                  class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all appearance-none cursor-pointer disabled:opacity-50" 
-                  :disabled="!formData.session_date || loadingSlots"
+                  class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all appearance-none cursor-pointer" 
                   required
                 >
-                  <option value="" class="bg-dark-900 text-gray-400">{{ loadingSlots ? 'Checking availability...' : 'Select time slot' }}</option>
+                  <option value="" class="bg-dark-900 text-gray-500">
+                    {{ !formData.session_date ? 'Please select a date first' : (loadingSlots ? 'Checking availability...' : 'Select time slot') }}
+                  </option>
                   <option v-for="slot in availableSlots" :key="slot" :value="slot" class="bg-dark-900 text-white">
                     {{ slot }}
                   </option>
@@ -62,25 +63,25 @@
 
           <!-- Personal Details -->
           <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2">{{ $t('jobMatching.name') }} *</label>
-            <input v-model="formData.name" type="text" class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-gray-600" placeholder="John Doe" required />
+            <label class="block text-sm font-medium text-gray-400 mb-3">{{ $t('jobMatching.name') }} *</label>
+            <input v-model="formData.name" type="text" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-gray-500" placeholder="John Doe" required />
           </div>
 
           <div class="grid md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2">{{ $t('jobMatching.email') }} *</label>
-              <input v-model="formData.email" type="email" class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-gray-600" placeholder="john@example.com" required />
+              <label class="block text-sm font-medium text-gray-400 mb-3">{{ $t('jobMatching.email') }} *</label>
+              <input v-model="formData.email" type="email" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-gray-500" placeholder="john@example.com" required />
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2">{{ $t('jobMatching.phone') }}</label>
-              <input v-model="formData.phone" type="tel" class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-gray-600" placeholder="+60 12-345 6789" />
+              <label class="block text-sm font-medium text-gray-400 mb-3">{{ $t('jobMatching.phone') }}</label>
+              <input v-model="formData.phone" type="tel" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all placeholder-gray-500" placeholder="+60 12-345 6789" />
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2">{{ $t('jobMatching.notes') }}</label>
-            <textarea v-model="formData.additional_notes" class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all min-h-[100px] placeholder-gray-600" placeholder="Any specific industry interests?"></textarea>
+            <label class="block text-sm font-medium text-gray-400 mb-3">{{ $t('jobMatching.notes') }}</label>
+            <textarea v-model="formData.additional_notes" class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all min-h-[100px] placeholder-gray-500" placeholder="Any specific industry interests?"></textarea>
           </div>
 
           <div class="text-center pt-4">

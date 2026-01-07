@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-dark-bg text-white">
+  <section id="home" class="relative min-h-[90vh] flex items-center pt-20 pb-24 overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-dark-bg text-white">
     <!-- Animated Background Effect -->
     <div class="absolute inset-0 z-0">
       <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/30 rounded-full blur-[100px] animate-pulse"></div>
@@ -12,7 +12,7 @@
         <!-- Text Content -->
         <div class="space-y-6 animate-slide-up">
           <div class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm font-semibold tracking-wider uppercase text-cyan-300 mb-4">
-            🚀 The Future of Work is Here
+            🚀 {{ $t('hero.tagline') }}
           </div>
           
           <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight">
@@ -39,7 +39,7 @@
               {{ $t('hero.cta') }}
             </button>
             <button class="btn-outline text-lg px-8 group">
-              View Schedule
+              {{ $t('hero.schedule') }}
               <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
             </button>
           </div>
@@ -53,17 +53,17 @@
             <!-- Floating Stats Cards -->
             <div class="absolute top-[10%] -left-[5%] bg-dark-800/80 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-float">
               <div class="text-3xl font-bold text-accent">1000+</div>
-              <div class="text-sm text-gray-400">Job Opportunities</div>
+              <div class="text-sm text-gray-400">{{ $t('hero.stat_jobs') }}</div>
             </div>
             
             <div class="absolute bottom-[20%] -right-[5%] bg-dark-800/80 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-float [animation-delay:1.5s]">
               <div class="text-3xl font-bold text-purple-400">200+</div>
-              <div class="text-sm text-gray-400">Top Companies</div>
+              <div class="text-sm text-gray-400">{{ $t('hero.stat_companies') }}</div>
             </div>
             
             <div class="absolute top-[50%] right-[10%] bg-dark-800/80 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-xl animate-float [animation-delay:0.8s] scale-90">
               <div class="text-xl font-bold text-green-400">50+</div>
-              <div class="text-xs text-gray-400">Career Talks</div>
+              <div class="text-xs text-gray-400">{{ $t('hero.stat_talks') }}</div>
             </div>
           </div>
         </div>

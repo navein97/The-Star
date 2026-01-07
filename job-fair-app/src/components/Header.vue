@@ -100,7 +100,7 @@ const toggleMobileMenu = () => {
 
 <style scoped>
 .nav-link {
-  @apply font-semibold text-gray-700 hover:text-primary transition-colors relative;
+  @apply font-semibold text-white hover:text-cyan-300 transition-colors relative;
 }
 
 .nav-link::after {
@@ -113,6 +113,6 @@ const toggleMobileMenu = () => {
 }
 
 .mobile-nav-link {
-  @apply text-lg font-medium text-gray-800 hover:text-primary hover:pl-2 transition-all block;
+  @apply text-lg font-medium text-white hover:text-cyan-300 hover:pl-2 transition-all block;
 }
 </style>

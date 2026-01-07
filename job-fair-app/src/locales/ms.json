@@ -3,9 +3,14 @@
     "hero": {
       "title": "Cari Bakat Yang Tepat",
       "subtitle": "Berhubung dengan majikan terkemuka dan temui kerjaya impian anda",
+      "tagline": "MASA DEPAN PEKERJAAN DI SINI",
       "date": "1-2 Januari, 2026",
       "location": "Pusat Konvensyen Kuala Lumpur",
-      "cta": "Daftar Sekarang"
+      "cta": "Daftar Sekarang",
+      "schedule": "Lihat Jadual",
+      "stat_jobs": "Peluang Pekerjaan",
+      "stat_talks": "Ceramah Kerjaya",
+      "stat_companies": "Syarikat Terkemuka"
     },
     "countdown": {
       "title": "Acara Bermula Dalam",
@@ -13,6 +18,15 @@
       "hours": "Jam",
       "minutes": "Minit",
       "seconds": "Saat"
+    },
+    "spinWheel": {
+      "title": "Putar & Menang!",
+      "subtitle": "Cuba nasib anda dan menang hadiah eksklusif dari pameran kami!",
+      "button": "PUTAR SEKARANG!",
+      "spinning": "Sedang Memutar...",
+      "won": "Tahniah! 🎉",
+      "youWon": "Anda memenangi:",
+      "claim": "Tuntut Hadiah"
     },
     "exhibitor": {
       "title": "Jadi Pameran Kami",
@@ -76,7 +90,17 @@
     },
     "footer": {
       "rights": "Hak cipta terpelihara",
-      "organizer": "Dianjurkan oleh Kumpulan Media Star"
+      "madeWith": "Dibuat dengan ❤️ untuk Masa Depan",
+      "organizer": "Dianjurkan oleh Kumpulan Media Star",
+      "quickLinks": "Pautan Pantas",
+      "followUs": "Ikuti Kami",
+      "desc": "Menghubungkan bakat terbaik dengan peluang bertaraf dunia. Sertai kami untuk acara kerjaya maya terbesar tahun ini.",
+      "links": {
+        "home": "Laman Utama",
+        "exhibitors": "Pameran",
+        "sessions": "Sesi",
+        "contact": "Hubungi"
+      }
     },
     "messages": {
       "success": "Berjaya!",
