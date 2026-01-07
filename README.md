@@ -2,94 +2,85 @@
 
 This repository contains the completed code for the "Job Fair Web Application" and "Spinning Wheel Game" practical test assignments.
 
+## 🚀 Quick Start (Read This First)
+
+**Important:** You must navigate into the project directory before running commands. The root folder is just a container.
+
+### 1. Job Fair App (Vue 3 + Tailwind)
+To run the main application:
+```bash
+# 1. Enter the project folder (CRITICAL STEP)
+cd job-fair-app
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the development server
+npm run dev
+```
+> Access the app at `http://localhost:3000` (or the port shown in your terminal).
+
+### 2. PHP Backend (Optional for UI Demo)
+To make the forms work nicely with a real database:
+```bash
+# In a separate terminal window:
+cd job-fair-app
+php -S localhost:8000
+```
+> *Note: The app has a "Demo Mode" so you can test the UI without this backend running.*
+
+---
+
 ## 📂 Project Structure
 
 ```
 /
 ├── job-fair-app/           # Assignment #1: Vue.js Web Application
-│   ├── src/                # Vue source code
+│   ├── src/                # Vue source code (Tailwind, Components)
 │   ├── backend/            # PHP API endpoints
 │   ├── database/           # SQL schema
-│   └── ...
+│   ├── postcss.config.cjs  # PostCSS Config
+│   └── tailwind.config.cjs # Tailwind Config
 └── spinning-wheel-game/    # Assignment #2: HTML5 Canvas Game
     ├── data/               # Prize configuration JSON
     ├── js/                 # Game logic
-    └── ...
+    └── index.html          # Standalone entry point
 ```
 
 ---
 
-## 🚀 Assignment #1: Job Fair Web Application
+## ✨ Features Implemented
 
-A single-page application built with **Vue 3** and **PHP**, featuring interactive elements, real-time forms, and multi-language support.
+### 🎨 Premium UI/UX (Glassmorphism)
+- **Design System**: Built with **Tailwind CSS** using a custom "Premium" theme.
+- **Visuals**: frosted glass cards, neon glows, and smooth animations (`slide-up`, `fade-in`).
+- **Responsive**: Mobile-first design with a collapsible navigation menu.
 
-### Features
-- **Interactive Floor Plan**: Searchable exhibitor directory with lightbox view.
-- **Reservations**: Book "Job Matching" and "Career Talk" sessions with real-time slot availability.
-- **Forms**: Validation for contact and exhibitor registration forms.
-- **Chatbot**: AI assistant powered by **Google Gemini** for FAQs.
-- **Internationalization**: Full English & Malay (Bahasa Malaysia) support.
-- **Countdown Timer**: Live countdown to the event start.
+### 🎮 Innovation & Gamification
+- **Spinning Wheel**: Integrated the Canvas-based game directly into the main app.
+- **AI Chatbot**: Enhanced UI for the Google Gemini-powered assistant.
 
-### Setup Instructions
-
-1. **Prerequisites**:
-   - Node.js (v16+)
-   - PHP (v8.0+) - **Note**: cURL extension must be enabled in `php.ini`.
-   - MySQL
-
-2. **Database Setup**:
-   - Create a new MySQL database named `job_fair_db`.
-   - Import the schema from `job-fair-app/database/schema.sql`.
-   - Update `job-fair-app/backend/config/database.php` with your database credentials.
-
-3. **Backend Setup**:
-   - Update `job-fair-app/backend/api/chatbot.php` with your **Google Gemini API Key**.
-   - Start the PHP built-in server:
-     ```bash
-     cd job-fair-app
-     php -S localhost:8000
-     ```
-
-4. **Frontend Setup**:
-   - Open a new terminal.
-   - Install dependencies and start the dev server:
-     ```bash
-     cd job-fair-app
-     npm install
-     npm run dev
-     ```
-   - Access the app at `http://localhost:3000`.
+### 🛠️ Core Functionality
+- **Job Matching**: Booking form with "Demo Mode" fallback (works even if PHP backend is down).
+- **Internationalization**: English & Malay support.
+- **Countdown Timer**: Real-time event countdown.
 
 ---
 
-## 🎰 Assignment #2: Spinning Wheel Game
+## ❓ Troubleshooting
 
-A browser-based game using **HTML5 Canvas** for rendering and **JavaScript** for logic.
+**Error: `npm error enoent Could not read package.json`**
+- **Cause**: You are running `npm install` in the root folder (`The Star`).
+- **Fix**: You must `cd job-fair-app` first.
 
-### Features
-- **Configurable Prizes**: Edit `data/prizes.json` to change prizes, probabilities, and visuals.
-- **Realistic Physics**: Smooth ease-out animation for spinning.
-- **Probability Logic**: Outcomes are weighted based on configuration.
-- **Winning Effects**: Confetti and animations for huge wins.
-
-### Setup Instructions
-
-1. Simply open `spinning-wheel-game/index.html` in any modern web browser.
-2. **Note**: Due to browser security policies (CORS) regarding fetching local JSON files, you might need to run it via a local server. You can use the same PHP server or a python server:
-   ```bash
-   cd spinning-wheel-game
-   python -m http.server 8080
-   # Open http://localhost:8080
-   ```
+**Error: `[plugin:vite:css] [postcss] ...`**
+- **Cause**: Dependency mismatch between Tailwind v3 and v4.
+- **Fix**: The project is configured for **Tailwind v3**. Ensure you don't install `@tailwindcss/postcss` (which is for v4). If you see this, run:
+  ```bash
+  npm uninstall @tailwindcss/postcss
+  npm install -D tailwindcss@3 postcss autoprefixer
+  ```
 
 ---
 
-## 📝 Notes
-- **Responsive Design**: Both projects are fully responsive and mobile-friendly.
-- **Security**: Backend using PHP PDO with prepared statements to prevent SQL injection.
-- **Gemini Chatbot**: Fully integrated AI assistant (ensure API key is set in `chatbot.php`).
-
----
-
-© 2025 Practical Test Submission
+© 2026 Practical Test Submission
