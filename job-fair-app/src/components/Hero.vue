@@ -1,41 +1,69 @@
 <template>
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">{{ $t('hero.title') }}</h1>
-          <p class="hero-subtitle">{{ $t('hero.subtitle') }}</p>
+  <section id="home" class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-dark-bg text-white">
+    <!-- Animated Background Effect -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/30 rounded-full blur-[100px] animate-pulse"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-600/30 rounded-full blur-[100px] animate-pulse delay-1000"></div>
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIyIiBjeT0iMiIgcj0iMiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=')] opacity-30"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Text Content -->
+        <div class="space-y-6 animate-slide-up">
+          <div class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm font-semibold tracking-wider uppercase text-cyan-300 mb-4">
+            🚀 The Future of Work is Here
+          </div>
           
-          <div class="hero-details">
-            <div class="detail-item">
-              <span class="icon">📅</span>
-              <span>{{ $t('hero.date') }}</span>
+          <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight">
+            {{ $t('hero.title') }}
+          </h1>
+          
+          <p class="text-xl text-gray-300 leading-relaxed max-w-lg">
+            {{ $t('hero.subtitle') }}
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-6 pt-4 text-gray-200">
+            <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+              <span class="text-2xl">📅</span>
+              <span class="font-medium">{{ $t('hero.date') }}</span>
             </div>
-            <div class="detail-item">
-              <span class="icon">📍</span>
-              <span>{{ $t('hero.location') }}</span>
+            <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+              <span class="text-2xl">📍</span>
+              <span class="font-medium">{{ $t('hero.location') }}</span>
             </div>
           </div>
           
-          <button class="btn btn-primary btn-lg">
-            {{ $t('hero.cta') }}
-          </button>
+          <div class="pt-8 flex flex-col sm:flex-row gap-4">
+            <button class="btn-primary text-lg px-8">
+              {{ $t('hero.cta') }}
+            </button>
+            <button class="btn-outline text-lg px-8 group">
+              View Schedule
+              <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            </button>
+          </div>
         </div>
         
-        <div class="hero-image">
-          <img src="/assets/images/hero.png" alt="Job Fair Illustration" class="hero-img" />
-          <div class="floating-stats">
-            <div class="floating-card">
-              <h3>1000+</h3>
-              <p>Job Opportunities</p>
+        <!-- Hero Image / Visual -->
+        <div class="relative h-[400px] md:h-[500px] flex items-center justify-center animate-fade-in delay-200">
+          <div class="relative w-full h-full">
+            <img src="/assets/images/hero.png" alt="Job Fair" class="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/10 mask-image" />
+            
+            <!-- Floating Stats Cards -->
+            <div class="absolute top-[10%] -left-[5%] bg-dark-800/80 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-float">
+              <div class="text-3xl font-bold text-accent">1000+</div>
+              <div class="text-sm text-gray-400">Job Opportunities</div>
             </div>
-            <div class="floating-card">
-              <h3>200+</h3>
-              <p>Companies</p>
+            
+            <div class="absolute bottom-[20%] -right-[5%] bg-dark-800/80 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-float [animation-delay:1.5s]">
+              <div class="text-3xl font-bold text-purple-400">200+</div>
+              <div class="text-sm text-gray-400">Top Companies</div>
             </div>
-            <div class="floating-card">
-              <h3>50+</h3>
-              <p>Career Talks</p>
+            
+            <div class="absolute top-[50%] right-[10%] bg-dark-800/80 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-xl animate-float [animation-delay:0.8s] scale-90">
+              <div class="text-xl font-bold text-green-400">50+</div>
+              <div class="text-xs text-gray-400">Career Talks</div>
             </div>
           </div>
         </div>
@@ -45,165 +73,7 @@
 </template>
 
 <style scoped>
-.hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: var(--white);
-  padding: var(--spacing-3xl) 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
-  opacity: 0.3;
-}
-
-.hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-3xl);
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-title {
-  color: var(--white);
-  margin-bottom: var(--spacing-lg);
-  animation: slideUp 0.8s ease-out;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: var(--spacing-xl);
-  animation: slideUp 0.8s ease-out 0.2s both;
-}
-
-.hero-details {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-  animation: slideUp 0.8s ease-out 0.4s both;
-}
-
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.icon {
-  font-size: 1.5rem;
-}
-
-.btn-lg {
-  padding: var(--spacing-md) var(--spacing-2xl);
-  font-size: 1.1rem;
-  animation: slideUp 0.8s ease-out 0.6s both;
-}
-
-.hero-image {
-  position: relative;
-  height: 400px;
-}
-
-.hero-img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-2xl);
-  animation: fadeIn 1s ease-out;
-}
-
-.floating-stats {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.floating-card {
-  position: absolute;
-  background: rgba(30, 41, 59, 0.9);
-  backdrop-filter: blur(8px);
-  color: var(--white);
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xl);
-  text-align: center;
-  animation: float 3s ease-in-out infinite;
-  pointer-events: auto;
-  min-width: 140px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.floating-card h3 {
-  color: #60a5fa;
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.floating-card p {
-  margin: 0;
-  font-size: 0.85rem;
-  opacity: 0.85;
-  color: var(--white);
-}
-
-/* Spread cards out to avoid blocking */
-.floating-card:nth-child(1) {
-  top: 15%;
-  left: -10%;
-}
-
-.floating-card:nth-child(2) {
-  top: -5%;
-  right: 35%;
-  animation-delay: 0.5s;
-}
-
-.floating-card:nth-child(3) {
-  bottom: 30%;
-  right: -3%;
-  animation-delay: 1s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero-image {
-    height: 300px;
-  }
-  
-  .floating-card {
-    padding: var(--spacing-md);
-  }
-  
-  .floating-card h3 {
-    font-size: 1.5rem;
-  }
+.mask-image {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 </style>

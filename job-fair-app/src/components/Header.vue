@@ -1,46 +1,82 @@
 <template>
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <div class="logo">
-          <h2>🎯 Job Fair 2026</h2>
+  <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/10 backdrop-blur-md border-b border-white/20 shadow-glass-sm">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🎯</span>
+          <h2 class="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+            Job Fair 2026
+          </h2>
         </div>
         
-        <nav class="nav">
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
           <a href="#home" class="nav-link">{{ $t('hero.title') }}</a>
           <a href="#exhibitors" class="nav-link">{{ $t('exhibitor.title') }}</a>
           <a href="#sessions" class="nav-link">Sessions</a>
           <a href="#contact" class="nav-link">{{ $t('contact.title') }}</a>
         </nav>
         
-        <div class="language-switcher">
-          <button 
-            @click="$emit('change-language', 'en')"
-            :class="['lang-btn', { active: currentLanguage === 'en' }]"
-          >
-            EN
-          </button>
-          <button 
-            @click="$emit('change-language', 'ms')"
-            :class="['lang-btn', { active: currentLanguage === 'ms' }]"
-          >
-            MS
+        <!-- Right Side Actions -->
+        <div class="flex items-center gap-4">
+          <!-- Language Switcher -->
+          <div class="hidden md:flex items-center bg-white/20 backdrop-blur-sm rounded-lg p-1 border border-white/30">
+            <button 
+              @click="$emit('change-language', 'en')"
+              :class="['px-3 py-1 rounded-md text-sm font-semibold transition-all duration-300', 
+                       currentLanguage === 'en' ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-primary']"
+            >
+              EN
+            </button>
+            <button 
+              @click="$emit('change-language', 'ms')"
+              :class="['px-3 py-1 rounded-md text-sm font-semibold transition-all duration-300', 
+                       currentLanguage === 'ms' ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-primary']"
+            >
+              MS
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden p-2 text-gray-700 hover:text-primary transition-colors" @click="toggleMobileMenu">
+            <div class="space-y-1.5 w-6">
+              <span class="block w-full h-0.5 bg-current transition-all" :class="{ 'rotate-45 translate-y-2': mobileMenuOpen }"></span>
+              <span class="block w-full h-0.5 bg-current transition-all" :class="{ 'opacity-0': mobileMenuOpen }"></span>
+              <span class="block w-full h-0.5 bg-current transition-all" :class="{ '-rotate-45 -translate-y-2': mobileMenuOpen }"></span>
+            </div>
           </button>
         </div>
-        
-        <button class="mobile-menu-btn" @click="toggleMobileMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
       
       <!-- Mobile Menu -->
-      <div v-if="mobileMenuOpen" class="mobile-menu">
-        <a href="#home" class="mobile-nav-link" @click="toggleMobileMenu">{{ $t('hero.title') }}</a>
-        <a href="#exhibitors" class="mobile-nav-link" @click="toggleMobileMenu">{{ $t('exhibitor.title') }}</a>
-        <a href="#sessions" class="mobile-nav-link" @click="toggleMobileMenu">Sessions</a>
-        <a href="#contact" class="mobile-nav-link" @click="toggleMobileMenu">{{ $t('contact.title') }}</a>
+      <div 
+        class="md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-white/10"
+        :class="mobileMenuOpen ? 'max-h-96 opacity-100 py-4' : 'max-h-0 opacity-0'"
+      >
+        <div class="flex flex-col gap-4">
+          <a href="#home" class="mobile-nav-link" @click="toggleMobileMenu">{{ $t('hero.title') }}</a>
+          <a href="#exhibitors" class="mobile-nav-link" @click="toggleMobileMenu">{{ $t('exhibitor.title') }}</a>
+          <a href="#sessions" class="mobile-nav-link" @click="toggleMobileMenu">Sessions</a>
+          <a href="#contact" class="mobile-nav-link" @click="toggleMobileMenu">{{ $t('contact.title') }}</a>
+          
+          <!-- Mobile Language Switcher -->
+          <div class="flex items-center gap-4 pt-4 border-t border-gray-200/50">
+            <span class="text-sm font-medium text-gray-500">Language:</span>
+            <button 
+              @click="$emit('change-language', 'en')"
+              :class="['font-semibold', currentLanguage === 'en' ? 'text-primary' : 'text-gray-500']"
+            >
+              English
+            </button>
+            <button 
+              @click="$emit('change-language', 'ms')"
+              :class="['font-semibold', currentLanguage === 'ms' ? 'text-primary' : 'text-gray-500']"
+            >
+              Malay
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -63,138 +99,20 @@ const toggleMobileMenu = () => {
 </script>
 
 <style scoped>
-.header {
-  position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-md);
-  z-index: 100;
-  padding: var(--spacing-md) 0;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-lg);
-}
-
-.logo h2 {
-  margin: 0;
-  color: var(--primary);
-  font-size: 1.5rem;
-}
-
-.nav {
-  display: flex;
-  gap: var(--spacing-xl);
-  align-items: center;
-}
-
 .nav-link {
-  font-weight: 600;
-  color: var(--gray-700);
-  transition: color var(--transition-fast);
-  position: relative;
+  @apply font-semibold text-gray-700 hover:text-primary transition-colors relative;
 }
 
 .nav-link::after {
   content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  transition: width var(--transition-base);
-}
-
-.nav-link:hover {
-  color: var(--primary);
+  @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
 }
 
 .nav-link:hover::after {
-  width: 100%;
-}
-
-.language-switcher {
-  display: flex;
-  gap: var(--spacing-xs);
-  background: var(--gray-100);
-  padding: 4px;
-  border-radius: var(--radius-lg);
-}
-
-.lang-btn {
-  padding: var(--spacing-xs) var(--spacing-md);
-  border: none;
-  background: transparent;
-  color: var(--gray-600);
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.lang-btn.active {
-  background: var(--white);
-  color: var(--primary);
-  box-shadow: var(--shadow-sm);
-}
-
-.lang-btn:hover:not(.active) {
-  color: var(--primary);
-}
-
-.mobile-menu-btn {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--spacing-xs);
-}
-
-.mobile-menu-btn span {
-  width: 24px;
-  height: 3px;
-  background: var(--gray-700);
-  border-radius: 2px;
-  transition: all var(--transition-base);
-}
-
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg) 0;
-  animation: slideDown var(--transition-base);
+  @apply w-full;
 }
 
 .mobile-nav-link {
-  font-weight: 600;
-  color: var(--gray-700);
-  padding: var(--spacing-sm) 0;
-  border-bottom: 1px solid var(--gray-200);
-}
-
-@media (max-width: 768px) {
-  .nav {
-    display: none;
-  }
-  
-  .mobile-menu-btn {
-    display: flex;
-  }
-  
-  .mobile-menu {
-    display: flex;
-  }
-  
-  .language-switcher {
-    order: -1;
-  }
+  @apply text-lg font-medium text-gray-800 hover:text-primary hover:pl-2 transition-all block;
 }
 </style>

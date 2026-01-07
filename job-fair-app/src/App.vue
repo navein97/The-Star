@@ -8,6 +8,9 @@
     
     <!-- Countdown Timer -->
     <CountdownTimer />
+
+    <!-- Spinning Wheel Game (Innovation) -->
+    <SpinningWheel />
     
     <!-- Floor Plan Section -->
     <FloorPlan />
@@ -45,6 +48,7 @@ import CareerTalks from './components/CareerTalks.vue'
 import ContactForm from './components/ContactForm.vue'
 import Footer from './components/Footer.vue'
 import Chatbot from './components/Chatbot.vue'
+import SpinningWheel from './components/SpinningWheel.vue'
 
 const { locale } = useI18n()
 const currentLanguage = ref(locale.value)
@@ -76,8 +80,4 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
-#app {
-  min-height: 100vh;
-}
-</style>
+

@@ -1,164 +1,122 @@
 <template>
-  <section class="countdown-section">
-    <div class="container">
-      <h2 class="text-center">{{ $t('countdown.title') }}</h2>
-      
-      <div class="countdown-grid">
-        <div class="countdown-item">
-          <div class="countdown-value">{{ days }}</div>
-          <div class="countdown-label">{{ $t('countdown.days') }}</div>
-        </div>
+  <div class="w-full bg-dark-800/50 backdrop-blur-sm border-b border-white/5">
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+        <h3 class="text-xl md:text-2xl font-display font-medium text-gray-300 uppercase tracking-widest">
+          Event Starts In
+        </h3>
         
-        <div class="countdown-separator">:</div>
-        
-        <div class="countdown-item">
-          <div class="countdown-value">{{ hours }}</div>
-          <div class="countdown-label">{{ $t('countdown.hours') }}</div>
-        </div>
-        
-        <div class="countdown-separator">:</div>
-        
-        <div class="countdown-item">
-          <div class="countdown-value">{{ minutes }}</div>
-          <div class="countdown-label">{{ $t('countdown.minutes') }}</div>
-        </div>
-        
-        <div class="countdown-separator">:</div>
-        
-        <div class="countdown-item">
-          <div class="countdown-value">{{ seconds }}</div>
-          <div class="countdown-label">{{ $t('countdown.seconds') }}</div>
+        <div class="flex gap-4 md:gap-8">
+          <div class="time-block">
+            <div class="time-val">{{ days }}</div>
+            <div class="time-label">Days</div>
+          </div>
+          <div class="time-block">
+            <div class="time-val">{{ hours }}</div>
+            <div class="time-label">Hours</div>
+          </div>
+          <div class="time-block">
+            <div class="time-val">{{ minutes }}</div>
+            <div class="time-label">Minutes</div>
+          </div>
+          <div class="time-block">
+            <div class="time-val">{{ seconds }}</div>
+            <div class="time-label">Seconds</div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const days = ref(0)
-const hours = ref(0)
-const minutes = ref(0)
-const seconds = ref(0)
+const days = ref('00')
+const hours = ref('00')
+const minutes = ref('00')
+const seconds = ref('00')
+let interval = null
 
-// Set target date: January 1, 2026
-const targetDate = new Date('2026-01-01T09:00:00').getTime()
+const targetDate = new Date('2026-03-15T09:00:00').getTime()
 
-let intervalId = null
-
-const updateCountdown = () => {
+const updateTimer = () => {
   const now = new Date().getTime()
   const distance = targetDate - now
 
   if (distance < 0) {
-    days.value = 0
-    hours.value = 0
-    minutes.value = 0
-    seconds.value = 0
-    if (intervalId) clearInterval(intervalId)
+    clearInterval(interval)
     return
   }
 
-  days.value = Math.floor(distance / (1000 * 60 * 60 * 24))
-  hours.value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-  minutes.value = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-  seconds.value = Math.floor((distance % (1000 * 60)) / 1000)
+  days.value = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0')
+  hours.value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0')
+  minutes.value = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0')
+  seconds.value = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0')
 }
 
 onMounted(() => {
-  updateCountdown()
-  intervalId = setInterval(updateCountdown, 1000)
+  updateTimer()
+  interval = setInterval(updateTimer, 1000)
 })
 
 onUnmounted(() => {
-  if (intervalId) clearInterval(intervalId)
+  if (interval) clearInterval(interval)
 })
 </script>
 
 <style scoped>
-.countdown-section {
-  background: var(--white);
-  padding: var(--spacing-2xl) 0;
-}
-
-.countdown-grid {
+.time-block {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
+  background-color: #1E293B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  min-width: 80px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.countdown-item {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: var(--white);
-  padding: var(--spacing-xl);
-  border-radius: var(--radius-xl);
-  min-width: 120px;
-  text-align: center;
-  box-shadow: var(--shadow-lg);
-  transition: transform var(--transition-base);
+@media (min-width: 768px) {
+  .time-block {
+    min-width: 100px;
+  }
 }
 
-.countdown-item:hover {
-  transform: scale(1.05);
+.time-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #2563EB, transparent);
+  opacity: 0.5;
 }
 
-.countdown-value {
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: var(--font-display);
-  line-height: 1;
-  margin-bottom: var(--spacing-sm);
-  animation: flipIn 0.6s ease-out;
+.time-val {
+  font-size: 1.875rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.25rem;
+  filter: drop-shadow(0 0 10px rgba(37,99,235,0.5));
 }
 
-.countdown-label {
-  font-size: 0.9rem;
+@media (min-width: 768px) {
+  .time-val {
+    font-size: 3rem;
+  }
+}
+
+.time-label {
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.9;
-}
-
-.countdown-separator {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--primary);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes flipIn {
-  from {
-    transform: rotateX(90deg);
-    opacity: 0;
-  }
-  to {
-    transform: rotateX(0);
-    opacity: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .countdown-grid {
-    gap: var(--spacing-sm);
-  }
-  
-  .countdown-item {
-    min-width: 80px;
-    padding: var(--spacing-md);
-  }
-  
-  .countdown-value {
-    font-size: 2rem;
-  }
-  
-  .countdown-label {
-    font-size: 0.75rem;
-  }
-  
-  .countdown-separator {
-    font-size: 2rem;
-  }
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  font-weight: 500;
 }
 </style>
